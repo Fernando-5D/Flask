@@ -1,9 +1,23 @@
-from flask import Flask
+from flask import Flask, render_template
 app = Flask(__name__)
 
 @app.route('/')
 def ruta():
-    return '<h1>Hola Fer</h1>'
+    nombre = "Fer"
+    pasatiempos = ["Programacion", "Fotografia", "Rally"]
+    return render_template('template.html', usuario = nombre, hobbies = pasatiempos)
+
+@app.route('/template1')
+def ruta1():
+    return render_template("template1.html")
+
+@app.route('/template2')
+def ruta2():
+    return render_template("template2.html")
+
+@app.route('/template3')
+def ruta3():
+    return render_template("template3.html")
 
 @app.route('/fact/<int:num>')
 def Factorial(num = 1):

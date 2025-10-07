@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plantilla</title>
+</head>
+<body>
+    <h1>Mi primer plantilla en Flask con Jinja2</h1>
+    <h2>Hola {{usuario}}</h2>
+    <ol>
+        {%for hobbie in hobbies%}
+            <li>{{hobbie}}</li>
+        {%endfor%}
+    </ol>
+</body>
+</html>
