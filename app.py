@@ -9,15 +9,18 @@ def ruta():
 
 @app.route('/template1')
 def ruta1():
-    return render_template("template1.html")
+    nombre = "Usuario"
+    return render_template("template1.html", name = nombre)
 
 @app.route('/template2')
 def ruta2():
-    return render_template("template2.html")
+    edad = 17
+    return render_template("template2.html", age = edad)
 
 @app.route('/template3')
 def ruta3():
-    return render_template("template3.html")
+    altura = 170
+    return render_template("template3.html", height = altura)
 
 @app.route('/fact/<int:num>')
 def Factorial(num = 1):
