@@ -7,19 +7,19 @@ def inicio():
 
 @app.route('/animalesExoticos')
 def animales():
-    return render_template("main.html")
+    return render_template("animales.html")
 
 @app.route('/vehiculosAntiguos')
 def vehiculos():
-    return render_template("main.html")
+    return render_template("vehiculos.html")
 
 @app.route('/maravillasMundo')
 def maravillas():
-    return render_template("main.html")
+    return render_template("maravillas.html")
 
 @app.route('/acercaDe')
 def acerca():
-    return render_template("main.html")
+    return render_template("acerca.html")
 
 if __name__ == '__main__':
     app.run(debug=True)

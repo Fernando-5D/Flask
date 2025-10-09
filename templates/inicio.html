@@ -4,42 +4,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Desarrollo de Plantilla Base</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 
 <body>
-    <header>
+    <header class="shadow-sm">
         <div style="background-color: #2e7bb9ff;">
             <p class="fs-1 text-center py-2 text-light fw-semibold">Desarrollo de Plantilla Base</p>
         </div>
-        <nav
-            class="nav border border-3 border-top-0 border-start-0 border-end-0 text-center pt-0 justify-content-center">
-            <a class="nav-item px-5 fw-semibold" href="/">Inicio</a>
-            <a class="nav-item px-5 fw-semibold" href="/animalesExoticos">Animales Exoticos</a>
-            <a class="nav-item px-5 fw-semibold" href="/vehiculosAntiguos">Vehiculos Antiguos</a>
-            <a class="nav-item px-5 fw-semibold" href="/maravillasMundo">Maravillas del Mundo</a>
-            <a class="nav-item px-5 fw-semibold" href="/acercaDe">Acerca De</a>
+        <nav class="nav text-center justify-content-center pb-3">
+            <a class="nav-item px-5 fw-semibold text-dark text-decoration-none" href="/">Inicio</a>
+            <a class="nav-item px-5 fw-semibold text-dark text-decoration-none" href="/animalesExoticos">Animales Exoticos</a>
+            <a class="nav-item px-5 fw-semibold text-dark text-decoration-none" href="/vehiculosAntiguos">Vehiculos Antiguos</a>
+            <a class="nav-item px-5 fw-semibold text-dark text-decoration-none" href="/maravillasMundo">Maravillas del Mundo</a>
+            <a class="nav-item px-5 fw-semibold text-dark text-decoration-none" href="/acercaDe">Acerca De</a>
         </nav>
     </header>
     <main>
-        <div class="mx-5 my-4">
-            <div class="ps-5">
+        <div class="px-5 py-5">
+            <div class="px-5">
                 {% block title %}
-                    <p class="fw-semibold">Inicio</p>
+                <p class="fs-2 fw-semibold">Inicio</p>
                 {% endblock %}
 
                 {% block main %}
-                <p>Esta pagina presenta informacion variada de diferentes temas, podras encontrar informacion de
-                    animales exoticos, vehiculos antiguos y maravillas del mundo.</p>
-                <p>A continuacion, acceda a uno de los temas posteriormente mencionados desde el navegador superior.</p>
+                <div>
+                    <p>Esta pagina presenta informacion variada de diferentes temas, podras encontrar informacion de
+                        animales exoticos, vehiculos antiguos y maravillas del mundo. A continuacion, acceda a uno
+                        de los temas posteriormente mencionados desde el navegador superior.</p>
+                        
+                    <div class="row">
+                        <img class="col-6" src="static/img/python.jpg" alt="logo python" style="width: 575px;">
+                        <img class="col-6" src="static/img/flask.webp" alt="logo flask" style="width: 575px;">
+                    </div>
+                </div>
                 {% endblock %}
             </div>
         </div>
     </main>
-    <footer>
-        <p class="text-center fw-semibold">Alvarez Zandate Luis Fernando</p>
+    <footer class="border-top border-2 border-light-subtle mt-4">
+        <p class="text-center fw-semibold pt-3 pb-2">Alvarez Zandate Luis Fernando</p>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
