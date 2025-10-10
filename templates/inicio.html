@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es-mx">
 
 <head>
     <meta charset="UTF-8">
@@ -14,6 +14,7 @@
         <div style="background-color: #2e7bb9ff;">
             <p class="fs-1 text-center py-3 text-light fw-semibold">Desarrollo de Plantilla Base</p>
         </div>
+
         <nav class="nav text-center justify-content-center pb-3">
             <a class="nav-item px-5 fw-semibold text-dark text-decoration-none" href="/">Inicio</a>
             <a class="nav-item px-5 fw-semibold text-dark text-decoration-none" href="/animalesExoticos">Animales Exoticos</a>
@@ -22,19 +23,22 @@
             <a class="nav-item px-5 fw-semibold text-dark text-decoration-none" href="/acercaDe">Acerca De</a>
         </nav>
     </header>
+
     <main>
         <div class="p-5">
             <div class="px-5 justify-content-center">
                 {% block title %}
-                <p class="fs-2 fw-semibold">Inicio</p>
+                <h2>Inicio</h2>
                 {% endblock %}
 
                 {% block main %}
                 <div>
-                    <p>Esta pagina hecha con Python y Flask presenta informacion variada de diferentes temas, podras encontrar informacion de
-                        animales exoticos, vehiculos antiguos y maravillas del mundo. A continuacion, acceda a uno
-                        de los temas posteriormente mencionados desde el navegador superior.</p>
-                        
+                    <p>
+                        Esta pagina hecha con Python y Flask presenta informacion variada de diferentes temas, podras
+                        encontrar informacion de animales exoticos, vehiculos antiguos y maravillas del mundo. A
+                        continuacion, acceda a uno de los temas posteriormente mencionados desde el navegador superior.
+                    </p>
+
                     <div class="row">
                         <img class="col-6" src="static/img/python.jpg" alt="logo python" style="width: 585px;">
                         <img class="col-6" src="static/img/flask.webp" alt="logo flask" style="width: 585px;">
@@ -44,6 +48,7 @@
             </div>
         </div>
     </main>
+
     <footer class="border-top border-2 border-light-subtle mt-4">
         <p class="text-center text-secondary fw-semibold pt-3 pb-2">Alvarez Zandate Luis Fernando</p>
     </footer>
