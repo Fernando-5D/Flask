@@ -1,0 +1,31 @@
+{% extends "inicio.html" %}
+
+{% block title %}
+<h2></h2>
+{% endblock title %}
+
+{% block main %}
+<div class="row justify-content-center">
+    <div class="card shadow mt-2 border-0" style="width: 425px;">
+        <h2 class="border-bottom py-3 text-center fw-bold">Inicia sesión</h2>
+
+        <form class="card-body pt-3">
+            <div class="mb-2">
+                <input type="email" class="form-control" placeholder="Número de celular o correo electrónico">
+            </div>
+
+            <div class="mb-2">
+                <input type="password" class="form-control" placeholder="Contraseña">
+            </div>
+
+            <div class="text-center pt-3 pb-0 row justify-content-center">
+                <button type="submit" class="btn mb-3" style="width: 200px; background-color: #2e7bb9ff;">
+                    <p class="fw-bold text-light fs-5 m-0">Iniciar Sesión</p>
+                </button>
+
+                <a class="fs-6 text-decoration-none" href="/registro">Registrate Aqui</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock main %}
