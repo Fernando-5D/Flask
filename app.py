@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, flash
 app = Flask(__name__)
 
-app.config['SECRET_KEY'] = "janedoelamejorfemmefatalytodaunapioneradelosanomalos"
+app.config['SECRET_KEY'] = "janedoelamejorfemmefatalytodaunapioneradelosanomalosymiesposa"
 
 @app.route('/')
 def inicio():
@@ -31,10 +31,30 @@ def sesion():
 def registro():
     return render_template("registro.html")
 
-@app.route('/registrando')
-def registro():
-    error = "None"
-    return
+@app.route('/registrando', methods = ("GET", "POST"))
+def registrando():
+    error = None
+    if request.method == "POST":
+        nombre = request.form["nombre"]
+        apellidoP = request.form["apellidoP"]
+        apellidoM = request.form["apellidoM"]
+        day = request.form["day"]
+        month = request.form["month"]
+        year = request.form["year"]
+        genero = request.form["genero"]
+        email = request.form["email"]
+        password = request.form["password"]
+        passwordC = request.form["passwordC"]
+        
+        if passwordC != password:
+            error = "La contraseña no coincide"
+        
+        if error != None:
+            flash(error)
+            render_template("registro.html")
+        else:
+            flash("Cuenta \"{nombre}\" registrada")
+            return render_template
 
 if __name__ == '__main__':
     app.run(debug=True)

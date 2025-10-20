@@ -9,26 +9,26 @@
     <div class="card shadow mt-2 border-0" style="width: 425px;">
         <h2 class="border-bottom py-3 text-center fw-bold">Crea una cuenta</h2>
 
-        <form class="card-body pt-2" action="/registrando">
+        <form class="card-body pt-2" method="post" action="/registrando">
             <div class="row col p-0 py-1 pe-2 ps-1">
-                <input type="text" class="form-control" placeholder="Nombre" minlength="3" maxlength="50" required>
+                <input id="nombre" type="text" class="form-control" placeholder="Nombre" minlength="3" maxlength="50" required>
             </div>
 
             <div class="row mb-3">
                 <div class="col-6 p-0 pt-1 pe-2 ps-1">
-                    <input type="text" class="form-control" placeholder="Apellido Paterno" minlength="3" maxlength="25"
+                    <input id="apellidoP" type="text" class="form-control" placeholder="Apellido Paterno" minlength="3" maxlength="25"
                         required>
                 </div>
 
                 <div class="col-6 p-0 pt-1 pe-2 ps-1">
-                    <input type="text" class="form-control" placeholder="Apellido Materno" minlength="3" maxlength="25">
+                    <input id="apellidoM" type="text" class="form-control" placeholder="Apellido Materno" minlength="3" maxlength="25">
                 </div>
             </div>
 
             <label class="mb-1 text-secondary">Fecha de nacimiento</label>
             <div class="row mb-3">
                 <div class="col-4 p-0 ps-2">
-                    <select class="form-select">
+                    <select id="day" class="form-select">
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
@@ -36,7 +36,7 @@
                 </div>
 
                 <div class="col-4 p-0 ps-2 pe-1">
-                    <select class="form-select">
+                    <select id="month" class="form-select">
                         <option>Enero</option>
                         <option>Febrero</option>
                         <option>Marzo</option>
@@ -44,7 +44,7 @@
                 </div>
 
                 <div class="col-4 p-0 ps-1 pe-2">
-                    <select class="form-select">
+                    <select id="year" class="form-select">
                         <option>2000</option>
                         <option>2001</option>
                         <option>2002</option>
@@ -55,21 +55,21 @@
             <label class="mb-1 text-secondary">Género</label>
             <fieldset class="d-flex mb-2">
                 <div class="border rounded-2 py-1">
-                    <div class="form-check px-2">
+                    <div id="genero" class="form-check px-2">
                         <label class="pe-3">Mujer</label>
                         <input type="radio" name="radioDefault">
                     </div>
                 </div>
 
                 <div class="border rounded-2 py-1 mx-2">
-                    <div class="form-check px-2">
+                    <div id="genero" class="form-check px-2">
                         <label class="pe-3">Hombre</label>
                         <input type="radio" name="radioDefault">
                     </div>
                 </div>
 
                 <div class="border rounded-2 py-1">
-                    <div class="form-check px-2">
+                    <div id="genero" class="form-check px-2">
                         <label class="pe-3">Personalizado</label>
                         <input type="radio" name="radioDefault">
                     </div>
@@ -77,15 +77,15 @@
             </fieldset>
 
             <div class="mb-2">
-                <input type="email" class="form-control" placeholder="Número de celular o correo electrónico" required>
+                <input id="email" type="email" class="form-control" placeholder="Número de celular o correo electrónico" required>
             </div>
 
             <div class="mb-2">
-                <input type="password" class="form-control" placeholder="Contraseña nueva" minlength="8" required>
+                <input id="password" type="password" class="form-control" placeholder="Contraseña nueva" minlength="8" required>
             </div>
 
             <div class="mb-2">
-                <input type="password" class="form-control" placeholder="Confirmar contraseña" minlength="8" required>
+                <input id="passwordC" type="password" class="form-control" placeholder="Confirmar contraseña" minlength="8" required>
             </div>
 
             <div class="text-center pt-3 pb-0 row justify-content-center">
