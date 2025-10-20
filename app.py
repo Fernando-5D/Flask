@@ -1,5 +1,7 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, flash
 app = Flask(__name__)
+
+app.config['SECRET_KEY'] = "janedoelamejorfemmefatalytodaunapioneradelosanomalos"
 
 @app.route('/')
 def inicio():
@@ -28,6 +30,11 @@ def sesion():
 @app.route('/registro')
 def registro():
     return render_template("registro.html")
+
+@app.route('/registrando')
+def registro():
+    error = "None"
+    return
 
 if __name__ == '__main__':
     app.run(debug=True)

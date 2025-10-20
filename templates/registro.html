@@ -9,14 +9,19 @@
     <div class="card shadow mt-2 border-0" style="width: 425px;">
         <h2 class="border-bottom py-3 text-center fw-bold">Crea una cuenta</h2>
 
-        <form class="card-body pt-2">
+        <form class="card-body pt-2" action="/registrando">
+            <div class="row col p-0 py-1 pe-2 ps-1">
+                <input type="text" class="form-control" placeholder="Nombre" minlength="3" maxlength="50" required>
+            </div>
+
             <div class="row mb-3">
-                <div class="col-6 p-0 pt-1 ps-2 pe-1">
-                    <input type="text" class="form-control" placeholder="Nombre">
+                <div class="col-6 p-0 pt-1 pe-2 ps-1">
+                    <input type="text" class="form-control" placeholder="Apellido Paterno" minlength="3" maxlength="25"
+                        required>
                 </div>
 
                 <div class="col-6 p-0 pt-1 pe-2 ps-1">
-                    <input type="text" class="form-control" placeholder="Apellido">
+                    <input type="text" class="form-control" placeholder="Apellido Materno" minlength="3" maxlength="25">
                 </div>
             </div>
 
@@ -72,11 +77,15 @@
             </fieldset>
 
             <div class="mb-2">
-                <input type="email" class="form-control" placeholder="Número de celular o correo electrónico">
+                <input type="email" class="form-control" placeholder="Número de celular o correo electrónico" required>
             </div>
 
             <div class="mb-2">
-                <input type="password" class="form-control" placeholder="Contraseña nueva">
+                <input type="password" class="form-control" placeholder="Contraseña nueva" minlength="8" required>
+            </div>
+
+            <div class="mb-2">
+                <input type="password" class="form-control" placeholder="Confirmar contraseña" minlength="8" required>
             </div>
 
             <div class="text-center pt-3 pb-0 row justify-content-center">
