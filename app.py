@@ -57,6 +57,7 @@ def registrando():
                          
             return render_template("registro.html")
         else:
+            print(str(nombre), str(apellidoP), str(apellidoM), str(fecha), str(genero), str(email), str(password), str(passwordC))
             flash("Cuenta \"{nombre}\" registrada")
             return render_template("inicio.html")
 
