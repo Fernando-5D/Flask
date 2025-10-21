@@ -40,7 +40,7 @@ def registrando():
         apellidoP = request.form["apellidoP"]
         apellidoM = request.form["apellidoM"]
         fecha = datetime.strptime(request.form["fecha"], '%Y-%m-%d').date()
-        genero = request.form.get("radioGenero")
+        genero = request.form.get("genero")
         email = request.form["email"]
         password = request.form["password"]
         passwordC = request.form["passwordC"]
