@@ -11,17 +11,19 @@
 
         <form class="card-body pt-2" method="post" action="/registrando">
             <div class="mb-1">
-                <input name="nombre" type="text" class="form-control" placeholder="Nombre" minlength="3" maxlength="50" required>
+                <input name="nombre" type="text" class="form-control" placeholder="Nombre" minlength="3" maxlength="50"
+                    required>
             </div>
 
             <div class="row mt-2 mb-3">
                 <div class="col-6 pe-1">
-                    <input name="apellidoP" type="text" class="form-control" placeholder="Apellido Paterno" minlength="3" maxlength="25" 
-                        required>
+                    <input name="apellidoP" type="text" class="form-control" placeholder="Apellido Paterno"
+                        minlength="3" maxlength="25" required>
                 </div>
 
                 <div class="col-6 ps-1">
-                    <input name="apellidoM" type="text" class="form-control" placeholder="Apellido Materno" minlength="3" maxlength="25">
+                    <input name="apellidoM" type="text" class="form-control" placeholder="Apellido Materno"
+                        minlength="3" maxlength="25">
                 </div>
             </div>
 
@@ -55,16 +57,30 @@
             </fieldset>
 
             <div class="mb-2">
-                <input name="email" type="email" class="form-control" placeholder="Número de celular o correo electrónico" required>
+                <input name="email" type="email" class="form-control"
+                    placeholder="Número de celular o correo electrónico" required>
             </div>
 
             <div class="mb-2">
-                <input name="password" type="password" class="form-control" placeholder="Contraseña nueva" minlength="8" required>
+                <input name="password" type="password" class="form-control" placeholder="Contraseña nueva" minlength="8"
+                    required>
             </div>
 
             <div class="mb-2">
-                <input name="passwordC" type="password" class="form-control" placeholder="Confirmar contraseña" minlength="8" required>
+                <input name="passwordC" type="password" class="form-control" placeholder="Confirmar contraseña"
+                    minlength="8" required>
             </div>
+
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+                            {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
 
             <div class="text-center pt-3 pb-0 row justify-content-center">
                 <button type="submit" class="btn mb-3" style="width: 200px; background-color: #2e7bb9ff;">
