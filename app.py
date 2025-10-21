@@ -52,13 +52,12 @@ def registrando():
             error.append("La contraseña no coincide")
         
         if error:
-            for err in error:
-                flash(err)
+            for e in error:
+                flash(e)
                          
             return render_template("registro.html")
         else:
             print(str(nombre), str(apellidoP), str(apellidoM), str(fecha), str(genero), str(email), str(password), str(passwordC))
-            flash("Cuenta \"{nombre}\" registrada")
             return render_template("inicio.html")
 
 if __name__ == '__main__':

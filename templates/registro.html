@@ -37,24 +37,33 @@
                 <div class="border rounded-2 py-1">
                     <div class="form-check px-2">
                         <label class="pe-3">Mujer</label>
-                        <input name="genero" type="radio" value="mujer">
+                        <input name="genero" type="radio" value="mujer" required>
                     </div>
                 </div>
 
                 <div class="border rounded-2 py-1 mx-2">
                     <div class="form-check px-2">
                         <label class="pe-3">Hombre</label>
-                        <input name="genero" type="radio" value="hombre">
+                        <input name="genero" type="radio" value="hombre" required>
                     </div>
                 </div>
 
                 <div class="border rounded-2 py-1">
                     <div class="form-check px-2">
                         <label class="pe-3">Personalizado</label>
-                        <input name="genero" type="radio" value="personalizado">
+                        <input name="genero" type="radio" value="personalizado" required>
                     </div>
                 </div>
             </fieldset>
+
+            <div id="pronombres" class="mb-2" style="display: none;">
+                <select class="form-select" required>
+                    <option selected disabled>Selecciona tu pronombre</option>
+                    <option value="femenino">Femenino</option>
+                    <option value="masculino">Masculino</option>
+                    <option value="neutro">Neutro</option>
+                </select>
+            </div>
 
             <div class="mb-2">
                 <input name="email" type="email" class="form-control"
@@ -91,5 +100,7 @@
             </div>
         </form>
     </div>
+
+    <script src="static/js/pronombres.js"></script>
 </div>
 {% endblock main %}
