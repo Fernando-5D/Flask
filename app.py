@@ -1,3 +1,4 @@
+from datetime import date
 from flask import Flask, render_template, request, flash
 app = Flask(__name__)
 
@@ -38,14 +39,15 @@ def registrando():
         nombre = request.form["nombre"]
         apellidoP = request.form["apellidoP"]
         apellidoM = request.form["apellidoM"]
-        day = request.form["day"]
-        month = request.form["month"]
-        year = request.form["year"]
+        fecha = request.form["fecha"]
         genero = request.form["genero"]
         email = request.form["email"]
         password = request.form["password"]
         passwordC = request.form["passwordC"]
         
+        if fecha > date.today:
+            error = "Fecha de nacimiento invalida"
+            
         if passwordC != password:
             error = "La contraseña no coincide"
         
