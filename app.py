@@ -1,4 +1,4 @@
-from datetime import date
+from datetime import datetime, date
 from flask import Flask, render_template, request, flash
 app = Flask(__name__)
 
@@ -34,29 +34,31 @@ def registro():
 
 @app.route('/registrando', methods = ("GET", "POST"))
 def registrando():
-    error = None
+    error = []
     if request.method == "POST":
         nombre = request.form["nombre"]
         apellidoP = request.form["apellidoP"]
         apellidoM = request.form["apellidoM"]
-        fecha = request.form["fecha"]
-        genero = request.form["genero"]
+        fecha = datetime.strptime(request.form["fecha"], '%Y-%m-%d').date()
+        genero = request.form.get["radioGenero"]
         email = request.form["email"]
         password = request.form["password"]
         passwordC = request.form["passwordC"]
         
-        if fecha > date.today:
-            error = "Fecha de nacimiento invalida"
+        if fecha > date.today():
+            error.append("Fecha de nacimiento invalida")
             
         if passwordC != password:
-            error = "La contraseña no coincide"
+            error.append("La contraseña no coincide")
         
         if error != None:
-            flash(error)
-            render_template("registro.html")
+            for err in error:
+                flash(err)
+                         
+            return render_template("registro.html")
         else:
             flash("Cuenta \"{nombre}\" registrada")
-            return render_template
+            return render_template("inicio.html")
 
 if __name__ == '__main__':
     app.run(debug=True)

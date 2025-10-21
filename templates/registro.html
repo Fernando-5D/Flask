@@ -11,23 +11,23 @@
 
         <form class="card-body pt-2" method="post" action="/registrando">
             <div class="mb-1">
-                <input id="nombre" type="text" class="form-control" placeholder="Nombre" minlength="3" maxlength="50" required>
+                <input name="nombre" type="text" class="form-control" placeholder="Nombre" minlength="3" maxlength="50" required>
             </div>
 
             <div class="row mt-2 mb-3">
                 <div class="col-6 pe-1">
-                    <input id="apellidoP" type="text" class="form-control" placeholder="Apellido Paterno" minlength="3" maxlength="25" 
+                    <input name="apellidoP" type="text" class="form-control" placeholder="Apellido Paterno" minlength="3" maxlength="25" 
                         required>
                 </div>
 
                 <div class="col-6 ps-1">
-                    <input id="apellidoM" type="text" class="form-control" placeholder="Apellido Materno" minlength="3" maxlength="25">
+                    <input name="apellidoM" type="text" class="form-control" placeholder="Apellido Materno" minlength="3" maxlength="25">
                 </div>
             </div>
 
             <label class="mb-1 text-secondary">Fecha de nacimiento</label>
             <div class="mb-3">
-                <input id="fecha" class="form-control" type="date" required>
+                <input name="fecha" class="form-control" type="date" required>
             </div>
 
             <label class="mb-1 text-secondary">Género</label>
@@ -35,35 +35,35 @@
                 <div class="border rounded-2 py-1">
                     <div class="form-check px-2">
                         <label class="pe-3">Mujer</label>
-                        <input id="genero" type="radio" name="radioGenero" value="mujer">
+                        <input name="genero" type="radio" name="radioGenero" value="mujer">
                     </div>
                 </div>
 
                 <div class="border rounded-2 py-1 mx-2">
                     <div class="form-check px-2">
                         <label class="pe-3">Hombre</label>
-                        <input id="genero" type="radio" name="radioGenero" value="hombre">
+                        <input name="genero" type="radio" name="radioGenero" value="hombre">
                     </div>
                 </div>
 
                 <div class="border rounded-2 py-1">
                     <div class="form-check px-2">
                         <label class="pe-3">Personalizado</label>
-                        <input id="genero" type="radio" name="radioGenero" value="personalizado">
+                        <input name="genero" type="radio" name="radioGenero" value="personalizado">
                     </div>
                 </div>
             </fieldset>
 
             <div class="mb-2">
-                <input id="email" type="email" class="form-control" placeholder="Número de celular o correo electrónico" required>
+                <input name="email" type="email" class="form-control" placeholder="Número de celular o correo electrónico" required>
             </div>
 
             <div class="mb-2">
-                <input id="password" type="password" class="form-control" placeholder="Contraseña nueva" minlength="8" required>
+                <input name="password" type="password" class="form-control" placeholder="Contraseña nueva" minlength="8" required>
             </div>
 
             <div class="mb-2">
-                <input id="passwordC" type="password" class="form-control" placeholder="Confirmar contraseña" minlength="8" required>
+                <input name="passwordC" type="password" class="form-control" placeholder="Confirmar contraseña" minlength="8" required>
             </div>
 
             <div class="text-center pt-3 pb-0 row justify-content-center">
