@@ -19,10 +19,14 @@ radiosNumOrEmail.forEach(radio => {
         if (radio.value === "numero") {
             inputTelefono.style.display = 'block';
             inputEmail.style.display = 'none';
+            inputTelefono.required = true;
+            inputEmail.required = false;
             
         } else {
             inputTelefono.style.display = 'none';
             inputEmail.style.display = 'block';
+            inputTelefono.required = false;
+            inputEmail.required = true;
         }
     });
 });

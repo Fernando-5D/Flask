@@ -61,7 +61,7 @@ def registrando():
                 flash(e)                         
             return render_template("registro.html")
         else:
-            print(str(nombre), str(apellidoP), str(apellidoM), str(fecha), str(genero), str(pronombre), str(email), str(password), str(passwordC))
+            print(str(nombre), str(apellidoP), str(apellidoM), str(fecha), str(genero), str(pronombre), str(email), str(telefono), str(password), str(passwordC))
             return render_template("inicio.html")
 
 if __name__ == '__main__':
