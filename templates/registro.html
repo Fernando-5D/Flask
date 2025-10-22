@@ -57,7 +57,7 @@
             </fieldset>
 
             <div id="pronombres" class="mb-2" style="display: none;">
-                <select class="form-select" required>
+                <select class="form-select" name="pronombre">
                     <option selected disabled>Selecciona tu pronombre</option>
                     <option value="femenino">Femenino</option>
                     <option value="masculino">Masculino</option>
@@ -65,9 +65,25 @@
                 </select>
             </div>
 
+            <fieldset class="d-flex mb-2">
+                <div class="border rounded-2 py-1">
+                    <div class="form-check px-2">
+                        <label class="pe-3">Numero de Celular</label>
+                        <input name="numOrEmail" type="radio" value="numero" required>
+                    </div>
+                </div>
+
+                <div class="border rounded-2 py-1 mx-2">
+                    <div class="form-check px-2">
+                        <label class="pe-3">Correo electronico</label>
+                        <input name="numOrEmail" type="radio" value="correo" required>
+                    </div>
+                </div>
+            </fieldset>
+
             <div class="mb-2">
-                <input name="email" type="email" class="form-control"
-                    placeholder="Número de celular o correo electrónico" required>
+                <input id="email" name="email" type="email" class="form-control" style="display: none;" placeholder="Correo electronico" required>
+                <input id="telefono" name="telefono" type="tel" class="form-control" style="display: none;" placeholder="Numero de celular" required>
             </div>
 
             <div class="mb-2">

@@ -41,23 +41,27 @@ def registrando():
         apellidoM = request.form["apellidoM"]
         fecha = datetime.strptime(request.form["fecha"], '%Y-%m-%d').date()
         genero = request.form.get("genero")
+        pronombre = request.form.get("pronombre")
         email = request.form["email"]
+        telefono = request.form["telefono"]
         password = request.form["password"]
         passwordC = request.form["passwordC"]
         
         if fecha > date.today():
             error.append("Fecha de nacimiento invalida")
             
+        if pronombre == None:
+            error.append("Pronombre invalido")
+            
         if passwordC != password:
             error.append("La contraseña no coincide")
         
         if error:
             for e in error:
-                flash(e)
-                         
+                flash(e)                         
             return render_template("registro.html")
         else:
-            print(str(nombre), str(apellidoP), str(apellidoM), str(fecha), str(genero), str(email), str(password), str(passwordC))
+            print(str(nombre), str(apellidoP), str(apellidoM), str(fecha), str(genero), str(pronombre), str(email), str(password), str(passwordC))
             return render_template("inicio.html")
 
 if __name__ == '__main__':
