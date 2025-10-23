@@ -21,12 +21,14 @@ radiosNumOrEmail.forEach(radio => {
             inputEmail.style.display = 'none';
             inputTelefono.required = true;
             inputEmail.required = false;
+            inputEmail.value = "";
             
         } else {
             inputTelefono.style.display = 'none';
             inputEmail.style.display = 'block';
             inputTelefono.required = false;
             inputEmail.required = true;
+            inputTelefono.value = "";
         }
     });
 });

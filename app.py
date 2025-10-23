@@ -28,6 +28,32 @@ def acerca():
 def sesion():
     return render_template("sesion.html")
 
+@app.route('/iniciandoSesion', methods = ("GET", "POST"))
+def iniciandoSesion():
+    error = []
+    if request.method == "POST":
+        email = request.form["email"]
+        telefono = request.form["telefono"]
+        password = request.form["password"]
+        
+        if email:
+            if email != "admin@mail.com":
+                error.append("Correo electronico incorrecto")
+        elif telefono:
+            if telefono != "+0123456789":
+                error.append("Telefono incorrecto")
+        
+        if password != "admin123":
+            error.append("Contraseña incorrecta")
+            
+        if error:
+            for e in error:
+                flash(e)                         
+            return render_template("sesion.html")
+        else:
+            print(str(email), str(telefono), str(password))
+            return render_template("inicio.html")
+
 @app.route('/registro')
 def registro():
     return render_template("registro.html")
