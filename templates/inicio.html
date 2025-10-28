@@ -18,7 +18,7 @@
             <li class="nav-item">
                 {% if not session.get("usuario") %}
                 <a class="nav-link active Light ms-1" style="background-color: rgb(149, 201, 201);" aria-current="page"
-                    href="/registrate">registrate</a>
+                    href="/registro">registrate</a>
                 {% else %}
                 <a></a>
                 {% endif %}
@@ -26,10 +26,10 @@
             <li class="nav-item">
                 {% if not session.get("usuario") %}
                 <a class="nav-link active ms-1" style="background-color: rgb(149, 201, 201);" aria-current="page"
-                    href="/iniciaSes">Iniciar Sesión</a>
+                    href="/sesion">Iniciar Sesión</a>
                 {% else %}
                 <a class="nav-link active" style="background-color: rgb(149, 201, 201);" aria-current="page"
-                    href="/iniciaSes">Cerrar Sesión</a>
+                    href="/sesion">Cerrar Sesión</a>
                 {% endif %}
             </li>
         </div>

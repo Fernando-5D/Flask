@@ -6,7 +6,7 @@
 
 {% block main %}
 <div class="row justify-content-center">
-    <div class="card shadow mt-2 border-0" style="width: 431px;">
+    <div class="card shadow mt-2 border-0" style="width: 464px;">
         <h2 class="border-bottom py-3 text-center fw-bold">Crea una cuenta</h2>
 
         <form class="card-body pt-2" method="post" action="/registrando">
@@ -50,24 +50,13 @@
 
                 <div class="border rounded-2 ms-1">
                     <div class="form-check px-2 py-1">
-                        <label class="pe-3">Personalizado</label>
-                        <input name="genero" type="radio" value="personalizado" required>
+                        <label class="pe-3">Prefiero no decirlo</label>
+                        <input name="genero" type="radio" value="Prefiero no decirlo" required>
                     </div>
                 </div>
             </fieldset>
 
-            {% if genero == "personalizado" %}
-            <div id="pronombres" class="mb-4">
-                <select class="form-select" name="pronombre" required>
-                    <option selected disabled>Selecciona tu pronombre</option>
-                    <option value="femenino">Femenino</option>
-                    <option value="masculino">Masculino</option>
-                    <option value="neutro">Neutro</option>
-                </select>
-            </div>
-            {% endif %}
-
-            <div class="mb-4">
+            <div class="mb-2">
                 <input name="email" type="email" class="form-control" placeholder="Correo electronico" required>   
             </div>
 

@@ -26,7 +26,7 @@ def acerca():
     return render_template("acerca.html")
 
 @app.route('/sesion')
-def inicioSesion():
+def sesion():
     if session.get('login'):
         nombre = session.get('nombre', 'Usuario')
         session.clear()
@@ -67,17 +67,13 @@ def registrando():
         apellidoM = request.form.get("apellidoM")
         fechaNac = datetime.strptime(request.form["fechaNac"], '%Y-%m-%d').date()
         genero = request.form["genero"]
-        pronombre = request.form["pronombre"]
         email = request.form["email"]
         password = request.form["password"]
         passwordC = request.form["passwordC"]
         
         if fechaNac > date.today():
             error.append("Fecha de nacimiento invalida")
-            
-        if not pronombre:
-            error.append("Pronombre invalido")
-            
+               
         if passwordC != password:
             error.append("La contraseña no coincide")
         
@@ -92,7 +88,6 @@ def registrando():
                 'apellidoM': apellidoM,
                 'fechaNac': fechaNac,
                 'genero': genero,
-                'pronombre': pronombre,
                 'password': password
             }
             
