@@ -28,9 +28,8 @@ def acerca():
 @app.route('/sesion')
 def sesion():
     if session.get('login'):
-        nombre = session.get('nombre', 'Usuario')
+        nombre = session.get('nombre', "Usuario")
         session.clear()
-        flash(f'Sesion cerrada. Hasta luego, {nombre}!', 'success')
         return redirect(url_for('inicio'))
     return render_template("sesion.html")
 

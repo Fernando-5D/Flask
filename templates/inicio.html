@@ -15,23 +15,11 @@
         <div class="row" style="background-color: #2e7bb9ff;">
             <p class="col fs-1 pt-2 pb-1 ps-5 text-light fw-semibold">Desarrollo de Plantilla Base</p>
 
-            <li class="nav-item">
-                {% if not session.get("usuario") %}
-                <a class="nav-link active Light ms-1" style="background-color: rgb(149, 201, 201);" aria-current="page"
-                    href="/registro">registrate</a>
-                {% else %}
-                <a></a>
-                {% endif %}
-            </li>
-            <li class="nav-item">
-                {% if not session.get("usuario") %}
-                <a class="nav-link active ms-1" style="background-color: rgb(149, 201, 201);" aria-current="page"
-                    href="/sesion">Iniciar Sesión</a>
-                {% else %}
-                <a class="nav-link active" style="background-color: rgb(149, 201, 201);" aria-current="page"
-                    href="/sesion">Cerrar Sesión</a>
-                {% endif %}
-            </li>
+            {% if not session.get('nombre') %}
+            <a class="col text-end text-light me-5 mt-4 fw-semibold fs-4 text-decoration-none" href="/sesion">Iniciar Sesión</a>
+            {% else %}
+            <a class="col text-end text-light me-5 mt-4 fw-semibold fs-4 text-decoration-none" href="/sesion">Cerrar Sesión</a>
+            {% endif %}
         </div>
 
         <nav class="nav text-center justify-content-center p-3">
