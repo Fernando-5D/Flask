@@ -15,16 +15,33 @@
         <div class="row" style="background-color: #2e7bb9ff;">
             <p class="col fs-1 pt-2 pb-1 ps-5 text-light fw-semibold">Desarrollo de Plantilla Base</p>
 
-            <div class="col py-4 pe-5 text-end">
-                <a class="fw-semibold fs-5 text-light text-decoration-none" href="/sesion">Inicio de Sesión</a>
-            </div>
+            <li class="nav-item">
+                {% if not session.get("usuario") %}
+                <a class="nav-link active Light ms-1" style="background-color: rgb(149, 201, 201);" aria-current="page"
+                    href="/registrate">registrate</a>
+                {% else %}
+                <a></a>
+                {% endif %}
+            </li>
+            <li class="nav-item">
+                {% if not session.get("usuario") %}
+                <a class="nav-link active ms-1" style="background-color: rgb(149, 201, 201);" aria-current="page"
+                    href="/iniciaSes">Iniciar Sesión</a>
+                {% else %}
+                <a class="nav-link active" style="background-color: rgb(149, 201, 201);" aria-current="page"
+                    href="/iniciaSes">Cerrar Sesión</a>
+                {% endif %}
+            </li>
         </div>
 
         <nav class="nav text-center justify-content-center p-3">
             <a class="nav-item px-5 fw-semibold text-dark text-decoration-none" href="/">Inicio</a>
-            <a class="nav-item px-5 fw-semibold text-dark text-decoration-none" href="/animalesExoticos">Animales Exoticos</a>
-            <a class="nav-item px-5 fw-semibold text-dark text-decoration-none" href="/vehiculosAntiguos">Vehiculos Antiguos</a>
-            <a class="nav-item px-5 fw-semibold text-dark text-decoration-none" href="/maravillasMundo">Maravillas del Mundo</a>
+            <a class="nav-item px-5 fw-semibold text-dark text-decoration-none" href="/animalesExoticos">Animales
+                Exoticos</a>
+            <a class="nav-item px-5 fw-semibold text-dark text-decoration-none" href="/vehiculosAntiguos">Vehiculos
+                Antiguos</a>
+            <a class="nav-item px-5 fw-semibold text-dark text-decoration-none" href="/maravillasMundo">Maravillas del
+                Mundo</a>
             <a class="nav-item px-5 fw-semibold text-dark text-decoration-none" href="/acercaDe">Acerca De</a>
         </nav>
     </header>

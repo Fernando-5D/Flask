@@ -1,8 +1,18 @@
 from datetime import datetime, date
-from flask import Flask, render_template, request, flash
+from flask import Flask, render_template, request, flash, session
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = "janedoelamejorfemmefatalytodaunapioneradelosanomalosymiesposa"
+usuarios[email or telefono] = [
+    {
+        'nombre': "ADMIN1",
+        'password': "admin1_123"
+    },
+    {
+        'nombre': "ADMIN2",
+        'password': "admin2_456"
+    }
+]
 
 @app.route('/')
 def inicio():
@@ -25,34 +35,35 @@ def acerca():
     return render_template("acerca.html")
 
 @app.route('/sesion')
-def sesion():
+def inicioSesion():
+    if session.get('sesion'):
+        nombre = session.get('usuario', 'Usuario')
+        session.clear()
+        flash(f'Sesion cerrada. Hasta luego, {nombre}!', 'success')
+        return redirect(url_for('inicio'))
     return render_template("sesion.html")
 
+sesion = False
 @app.route('/iniciandoSesion', methods = ("GET", "POST"))
 def iniciandoSesion():
-    error = []
     if request.method == "POST":
-        email = request.form["email"]
-        telefono = request.form["telefono"]
+        email = request.form("email")
+        telefono = request.form("telefono")
         password = request.form["password"]
         
-        if email:
-            if email != "admin@mail.com":
-                error.append("Correo electronico incorrecto")
-        elif telefono:
-            if telefono != "+0123456789":
-                error.append("Telefono incorrecto")
-        
-        if password != "admin123":
-            error.append("Contraseña incorrecta")
-            
-        if error:
-            for e in error:
-                flash(e)                         
-            return render_template("sesion.html")
+        if email in usuarios or telefono in usuarios:
+            usuario = usuarios[email or telefono]
+            if usuario['password'] == password:
+                session['email'] = email
+                session['nombre'] = usuario['nombre']
+                session['login'] = True
+                return redirect(url_for('inicio'))
+            else:
+                flash("Contraseña incorrecta", "error")
         else:
-            print(str(email), str(telefono), str(password))
-            return render_template("inicio.html")
+            flash("Usuario no encontrado", "error")
+            
+    return render_template("sesion.html")
 
 @app.route('/registro')
 def registro():
@@ -64,16 +75,16 @@ def registrando():
     if request.method == "POST":
         nombre = request.form["nombre"]
         apellidoP = request.form["apellidoP"]
-        apellidoM = request.form["apellidoM"]
-        fecha = datetime.strptime(request.form["fecha"], '%Y-%m-%d').date()
-        genero = request.form.get("genero")
-        pronombre = request.form.get("pronombre")
-        email = request.form["email"]
-        telefono = request.form["telefono"]
+        apellidoM = request.form("apellidoM")
+        fechaNac = datetime.strptime(request.form["fechaNac"], '%Y-%m-%d').date()
+        genero = request.form["genero"]
+        pronombre = request.form["pronombre"]
+        email = request.form("email")
+        telefono = request.form("telefono")
         password = request.form["password"]
         passwordC = request.form["passwordC"]
         
-        if fecha > date.today():
+        if fechaNac > date.today():
             error.append("Fecha de nacimiento invalida")
             
         if pronombre == None:
@@ -83,11 +94,11 @@ def registrando():
             error.append("La contraseña no coincide")
         
         if error:
-            for e in error:
-                flash(e)                         
+            for err in error:
+                flash(err)                        
             return render_template("registro.html")
         else:
-            print(str(nombre), str(apellidoP), str(apellidoM), str(fecha), str(genero), str(pronombre), str(email), str(telefono), str(password), str(passwordC))
+            print(str(nombre), str(apellidoP), str(apellidoM), str(fechaNac), str(genero), str(pronombre), str(email), str(telefono), str(password), str(passwordC))
             return render_template("inicio.html")
 
 if __name__ == '__main__':
