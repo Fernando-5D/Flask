@@ -37,7 +37,7 @@ def inicioSesion():
 @app.route('/iniciandoSesion', methods = ("GET", "POST"))
 def iniciandoSesion():
     if request.method == "POST":
-        email = request.form("email")
+        email = request.form["email"]
         password = request.form["password"]
         
         if email in usuarios:
@@ -75,7 +75,7 @@ def registrando():
         if fechaNac > date.today():
             error.append("Fecha de nacimiento invalida")
             
-        if pronombre == None:
+        if not pronombre:
             error.append("Pronombre invalido")
             
         if passwordC != password:
@@ -96,7 +96,7 @@ def registrando():
                 'password': password
             }
             
-            return render_template("sesion.html")
+            return redirect(url_for('sesion'))
 
 if __name__ == '__main__':
     app.run(debug=True)
