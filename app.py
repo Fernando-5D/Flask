@@ -30,7 +30,7 @@ def sesion():
     if session.get('login'):
         nombre = session.get('nombre', "Usuario")
         session.clear()
-        return redirect(url_for('inicio'))
+        return redirect(url_for('inicio', nombre = nombre))
     return render_template("sesion.html")
 
 @app.route('/iniciandoSesion', methods = ("GET", "POST"))
