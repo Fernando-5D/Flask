@@ -1,9 +1,9 @@
 from datetime import datetime, date
-from flask import Flask, render_template, request, flash, session
+from flask import Flask, render_template, request, flash, session, redirect, url_for
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = "janedoelamejorfemmefatalytodaunapioneradelosanomalosymiesposa"
-usuarios[email or telefono] = [
+usuarios[email] = [
     {
         'nombre': "ADMIN1",
         'password': "admin1_123"
@@ -36,23 +36,21 @@ def acerca():
 
 @app.route('/sesion')
 def inicioSesion():
-    if session.get('sesion'):
-        nombre = session.get('usuario', 'Usuario')
+    if session.get('login'):
+        nombre = session.get('nombre', 'Usuario')
         session.clear()
         flash(f'Sesion cerrada. Hasta luego, {nombre}!', 'success')
         return redirect(url_for('inicio'))
     return render_template("sesion.html")
 
-sesion = False
 @app.route('/iniciandoSesion', methods = ("GET", "POST"))
 def iniciandoSesion():
     if request.method == "POST":
         email = request.form("email")
-        telefono = request.form("telefono")
         password = request.form["password"]
         
-        if email in usuarios or telefono in usuarios:
-            usuario = usuarios[email or telefono]
+        if email in usuarios:
+            usuario = usuarios[email]
             if usuario['password'] == password:
                 session['email'] = email
                 session['nombre'] = usuario['nombre']
@@ -75,12 +73,11 @@ def registrando():
     if request.method == "POST":
         nombre = request.form["nombre"]
         apellidoP = request.form["apellidoP"]
-        apellidoM = request.form("apellidoM")
+        apellidoM = request.form.get("apellidoM")
         fechaNac = datetime.strptime(request.form["fechaNac"], '%Y-%m-%d').date()
         genero = request.form["genero"]
         pronombre = request.form["pronombre"]
-        email = request.form("email")
-        telefono = request.form("telefono")
+        email = request.form["email"]
         password = request.form["password"]
         passwordC = request.form["passwordC"]
         
@@ -98,7 +95,7 @@ def registrando():
                 flash(err)                        
             return render_template("registro.html")
         else:
-            print(str(nombre), str(apellidoP), str(apellidoM), str(fechaNac), str(genero), str(pronombre), str(email), str(telefono), str(password), str(passwordC))
+            print(str(nombre), str(apellidoP), str(apellidoM), str(fechaNac), str(genero), str(pronombre), str(email), str(password), str(passwordC))
             return render_template("inicio.html")
 
 if __name__ == '__main__':
