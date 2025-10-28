@@ -3,16 +3,7 @@ from flask import Flask, render_template, request, flash, session, redirect, url
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = "janedoelamejorfemmefatalytodaunapioneradelosanomalosymiesposa"
-usuarios[email] = [
-    {
-        'nombre': "ADMIN1",
-        'password': "admin1_123"
-    },
-    {
-        'nombre': "ADMIN2",
-        'password': "admin2_456"
-    }
-]
+usuarios = {}
 
 @app.route('/')
 def inicio():
@@ -95,8 +86,17 @@ def registrando():
                 flash(err)                        
             return render_template("registro.html")
         else:
-            print(str(nombre), str(apellidoP), str(apellidoM), str(fechaNac), str(genero), str(pronombre), str(email), str(password), str(passwordC))
-            return render_template("inicio.html")
+            usuarios[email] = {
+                'nombre': nombre,
+                'apellidoP': apellidoP,
+                'apellidoM': apellidoM,
+                'fechaNac': fechaNac,
+                'genero': genero,
+                'pronombre': pronombre,
+                'password': password
+            }
+            
+            return render_template("sesion.html")
 
 if __name__ == '__main__':
     app.run(debug=True)
